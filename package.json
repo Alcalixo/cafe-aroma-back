@@ -1,0 +1,18 @@
+{
+  "name": "cafe-aroma-back",
+  "version": "1.0.0",
+  "description": "Back-End del proyecto final de Talentos Digitales",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "authors": "Gonzalo Rodríguez, Juan Ignacio Meza Wakahayashi, Leonardo Canteros, Nicolas Sena",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "express": "^4.21.1"
+  }
+}
