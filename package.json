@@ -4,7 +4,7 @@
   "description": "Back-End del proyecto final de Talentos Digitales",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js"
   },
   "authors": "Gonzalo Rodríguez, Juan Ignacio Meza Wakahayashi, Leonardo Canteros, Nicolas Sena",
   "license": "ISC",

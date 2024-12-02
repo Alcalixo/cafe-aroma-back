@@ -1,10 +1,14 @@
 const {Router} = require('express');
-const producRouter = require('./producRoutes');
-const MainRouter = Router();
+const productRouter = require('./productRoutes');
+const mainRouter = Router();
+const userRouter = require("./userRoutes");
+const postRouter = require("./postRoutes");
 
 //productos
-MainRouter.use('/productos',producRouter);
-
-
-module.exports = MainRouter;
+mainRouter.use('/productos',productRouter);
+//usuarios
+mainRouter.use("/users", userRouter);
+//posteos
+mainRouter.use("/post", postRouter);
+module.exports = mainRouter;
 
