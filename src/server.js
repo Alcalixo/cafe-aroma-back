@@ -18,7 +18,7 @@ app.use(express.json());
 
 // Para crear un middleware propio usar "next"
 app.use((req, res, next) => {
-  console.log("El servidor acaba de recibir una solicitud");
+  console.log("Acabo de recibir una solicitud");
   //cuando llegue una solicitud a /api ... mainRouter se encargará de responder
   next();
 });
