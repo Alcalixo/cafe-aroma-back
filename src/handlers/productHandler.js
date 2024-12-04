@@ -1,4 +1,4 @@
-const {  createProductController, getAllProductController,getOneProductController,getProductByIdController,updateProductController, deleteProductController} = require("../controller/productosControllers");
+const {  createProductController, getAllProductController,getOneProductController,getProductByIdController,updateProductController, deleteProductController} = require("../controllers/productController");
 
 const joi = require("joi");
 const productSchema = joi.object({
@@ -58,7 +58,7 @@ const updateProductHandler = (req, res) => {
    
 };
 
-const deletProducthandler = (req, res)=>{
+const deleteProductHandler = (req, res)=>{
    try {
         const {id} = req.params;
         const response = deleteProductController(id);
@@ -74,7 +74,7 @@ module.exports = {
     getOneproductHandler ,
     createProductHandler,
     updateProductHandler,
-    deletProducthandler
+    deleteProductHandler
 };
 
 
