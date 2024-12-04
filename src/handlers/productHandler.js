@@ -9,26 +9,26 @@ const productSchema = joi.object({
 
 const idSchema = joi.object({id :joi.number().required()})
 
-const getAllProductsHandler = (req,res) =>{
+const getAllProductsHandler = async (req, res) => {
     try {
-    const{name} = req.query;
-    if (name){
-        const response = getOneProductController(name);
-        res.status(200).send(response);
-    }else{
-        const response2 = getAllProductController();
-        res.send(response2);
+      const { name } = req.query;
+      let response;
+      if (name) {
+        response = await getOneProductController(name); 
+      } else {
+        response = await getAllProductController();
+      }
+      res.status(200).json(response);  // res.json() para enviar los productos
+    } catch (error) {
+      console.error("Error al obtener los productos:", error);
+      res.status(500).send({ error: error.message });
     }
-   } catch (error) {
-         res.status(500).send({ error: error.message });
-   }
-    
-}; 
+  };
 
-const getOneproductHandler = (req, res)=>{
+const getOneproductHandler = async(req, res)=>{
     try {
         const {id} = req.params;
-        const response = getProductByIdController(id);
+        const response = await getProductByIdController(id);
         res.send(response);
     } catch (error) {
         res.status(400).send({Error : error.message});
@@ -46,11 +46,11 @@ const createProductHandler = async (req, res)=>{
     }
 };
 
-const updateProductHandler = (req, res) => {
+const updateProductHandler =async (req, res) => {
     try {
         const {id} = req.params;
         const {name, precio, stock } = req.body;
-        const response = updateProductController(id, name, precio, stock );
+        const response = await updateProductController(id, name, precio, stock );
         res.send(response);
     } catch (error) {
         res.status(400).send({Error : error.message});
@@ -58,11 +58,11 @@ const updateProductHandler = (req, res) => {
    
 };
 
-const deleteProductHandler = (req, res)=>{
+const deleteProductHandler = async (req, res)=>{
    try {
         const {id} = req.params;
-        const response = deleteProductController(id);
-        res.send(response);
+        const response = await deleteProductController(id);
+        res.status(200).json(response); 
    } catch (error) {
         res.status(400).send({Error : error.message});
    }
