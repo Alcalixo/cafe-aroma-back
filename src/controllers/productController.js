@@ -1,60 +1,58 @@
-const {products} = require('../db/dataBase');
+const Product = require('../models/productsModel'); // Modelo de Mongoose
 
-
-const createProductController = (name, precio, stock ) =>{
-    const id = products.length + 1;
-    const nuevoProducto = {id, name, precio, stock };
-    products.push(nuevoProducto);
-    console.log(nuevoProducto);
-    return nuevoProducto;
+// Crear un nuevo producto
+const createProductController = async (name, precio, stock, img, description) => {
+  const nuevoProducto = new Product({ name, precio, stock, img, description });
+  const savedProduct = await nuevoProducto.save(); // Guardar en la base de datos
+  console.log(savedProduct);
+  return savedProduct;
 };
 
-const getAllProductController = () =>{
-    console.log(products);
-    return products;
+// Obtener todos los productos
+const getAllProductController = async () => {
+  const products = await Product.find(); // Recuperar todos los productos
+  console.log(products);
+  return products;
 };
 
-const getOneProductController = (name) =>{
-   const productsByName = products.filter((product) => product.name === name);
-   console.log(productsByName);
-   return productsByName;
+// Obtener un producto por nombre
+const getOneProductController = async (name) => {
+  const productsByName = await Product.find({ name }); // Buscar por nombre
+  console.log(productsByName);
+  return productsByName;
 };
 
-const getProductByIdController = (id) =>{
-    const productById = products.find((product) => product.id ===  Number(id) );
-    console.log(productById);
-    return productById;
+// Obtener un producto por ID
+const getProductByIdController = async (id) => {
+  const productById = await Product.findById(id); // Buscar por ID
+  console.log(productById);
+  return productById;
 };
 
-
-const updateProductController = (id, name, precio, stock ) => {
-    const newProduct = (id, name, precio, stock ); 
-    const productUpdate = products.find((user) => user.id ===  Number(id) );
-
-    if(productUpdate){
-        Object.assign(productUpdate, newProduct);
-    }
-
-    console.log(productUpdate);
-    return productUpdate;
-};
-
-const deleteProductController = (id) => {
-    const index = products.findIndex((products) => products.id ===  Number(id) );
+// Actualizar un producto
+const updateProductController = async (id, name, precio, stock, img, description) => {
+  const updatedProduct = await Product.findByIdAndUpdate(
+    id,
+    { name, precio, stock, img, description },
+    { new: true } // Retorna el producto actualizado
+  );
+  console.log(updatedProduct);
   
-    let productDeleted = products.splice(index, 1);
-    
-    console.log(productDeleted);
-}
+  return updatedProduct;
+};
 
-
-
+// Eliminar un producto
+const deleteProductController = async (id) => {
+  const deletedProduct = await Product.findByIdAndDelete(id); // Elimina por ID
+  console.log(deletedProduct);
+  return deletedProduct;
+};
 
 module.exports = {
-    createProductController,
-    getAllProductController,
-    getOneProductController,
-    getProductByIdController,
-    updateProductController,
-    deleteProductController
+  createProductController,
+  getAllProductController,
+  getOneProductController,
+  getProductByIdController,
+  updateProductController,
+  deleteProductController,
 };
