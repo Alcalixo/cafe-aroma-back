@@ -9,10 +9,8 @@ const app = express();
 
 //debo indicarle a express que el cuerpo "body" de la solicitud vendrá en JSON y debe convertir a Javascript
 //debe suceder antes de llamar a mainRouter o habrá una excepcion al no reconocer la informacion recibida.
-app.use(express.json());
 
 app.use(morgan("dev"));
-
 // Middleware para parsear JSON
 app.use(express.json());
 
