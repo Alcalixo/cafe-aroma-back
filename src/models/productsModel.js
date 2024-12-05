@@ -16,6 +16,14 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: true, // El stock es obligatorio
     },
+    img: {
+      type: String,
+      required: true, // la imgen es obligatorio
+    },
+    description: {
+      type: String,
+      required: true, // la descripcion es obligatorio
+    },
     
   },
   {

@@ -1,8 +1,8 @@
 const Product = require('../models/productsModel'); // Modelo de Mongoose
 
 // Crear un nuevo producto
-const createProductController = async (name, precio, stock) => {
-  const nuevoProducto = new Product({ name, precio, stock });
+const createProductController = async (name, precio, stock, img, description) => {
+  const nuevoProducto = new Product({ name, precio, stock, img, description });
   const savedProduct = await nuevoProducto.save(); // Guardar en la base de datos
   console.log(savedProduct);
   return savedProduct;
@@ -30,10 +30,10 @@ const getProductByIdController = async (id) => {
 };
 
 // Actualizar un producto
-const updateProductController = async (id, name, precio, stock) => {
+const updateProductController = async (id, name, precio, stock, img, description) => {
   const updatedProduct = await Product.findByIdAndUpdate(
     id,
-    { name, precio, stock },
+    { name, precio, stock, img, description },
     { new: true } // Retorna el producto actualizado
   );
   console.log(updatedProduct);

@@ -38,8 +38,8 @@ const getOneproductHandler = async(req, res)=>{
 
 const createProductHandler = async (req, res)=>{
     try {
-        const {name, precio, stock } = req.body;
-        const response = await createProductController(name, precio, stock );
+        const {name, precio, stock, img, description} = req.body;
+        const response = await createProductController(name, precio, stock, img, description );
         res.send(response);
     } catch (error) {
         res.status(400).send({Error : error.message});
@@ -49,8 +49,8 @@ const createProductHandler = async (req, res)=>{
 const updateProductHandler =async (req, res) => {
     try {
         const {id} = req.params;
-        const {name, precio, stock } = req.body;
-        const response = await updateProductController(id, name, precio, stock );
+        const {name, precio, stock, img, description } = req.body;
+        const response = await updateProductController(id, name, precio, stock, img, description );
         res.send(response);
     } catch (error) {
         res.status(400).send({Error : error.message});
