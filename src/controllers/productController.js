@@ -37,6 +37,7 @@ const updateProductController = async (id, name, precio, stock, img, description
     { new: true } // Retorna el producto actualizado
   );
   console.log(updatedProduct);
+  
   return updatedProduct;
 };
 
