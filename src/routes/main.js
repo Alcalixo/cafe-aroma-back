@@ -5,10 +5,6 @@ const userRouter = require("./userRoutes");
 const orderRouter = require("./orderRoutes");
 const postRouter = require("./postRoutes");
 
-//productos
-mainRouter.use('/productos',productRouter
-// #swagger.tags = ['Productos']
-);
 //usuarios
 mainRouter.use("/users", userRouter
   /*
@@ -18,6 +14,12 @@ mainRouter.use("/users", userRouter
   }]
   */
 );
+
+//productos
+mainRouter.use('/productos',productRouter
+// #swagger.tags = ['Productos']
+);
+
 //posteos
 mainRouter.use("/orders", orderRouter
 // #swagger.tags = ['Ordenes']
