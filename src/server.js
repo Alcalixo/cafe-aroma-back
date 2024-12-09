@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 });
 
 // Rutas
-app.use("/api", mainRouter);
+app.use(mainRouter);
 
 // Conectar a la base de datos
 connectDB();
