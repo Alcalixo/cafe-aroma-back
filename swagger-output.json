@@ -706,27 +706,11 @@
           }
         },
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "example": "any"
-                  },
-                  "precio": {
-                    "example": "any"
-                  },
-                  "stock": {
-                    "example": "any"
-                  },
-                  "img": {
-                    "example": "any"
-                  },
-                  "description": {
-                    "example": "any"
-                  }
-                }
+                "$ref": "#/components/schemas/someSchema"
               }
             }
           }
@@ -928,6 +912,29 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "ordersSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "example": "675659ec9247bd1a5c6a8fe2"
+          },
+          "items": {
+            "type": "string",
+            "example": "45"
+          },
+          "about": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "required": [
+          "user_id",
+          "items"
+        ]
       }
     }
   }

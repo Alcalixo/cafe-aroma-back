@@ -23,8 +23,12 @@ const getOneOrderHandler = async(req, res)=>{
 
 const createOrderHandler = async (req, res)=>{
     try {
-        const {name, precio, stock, img, description} = req.body;
-        const response = await createOrderController(name, precio, stock, img, description );
+        const newOrder = new Order({
+            user_id: req.body.user_id,
+            items: req.body.items,
+            })
+        // const {name, precio, stock, img, description} = req.body;
+        const response = await createOrderController(newOrder);
         res.send(response);
     } catch (error) {
         res.status(400).send({Error : error.message});

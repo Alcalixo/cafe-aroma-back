@@ -27,6 +27,13 @@ const doc = {
         scheme: "bearer",
       },
     },
+      schemas: {
+          ordersSchema: {
+              $user_id: '675659ec9247bd1a5c6a8fe2',
+              $items: "45",
+              about: ''
+          },
+      }
   },
   definitions: {}, // by default: empty object
 };
