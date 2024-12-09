@@ -761,57 +761,9 @@
             "description": "Bad Request"
           }
         }
-      },
-      "put": {
-        "tags": [
-          "Ordenes"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "example": "any"
-                  },
-                  "precio": {
-                    "example": "any"
-                  },
-                  "stock": {
-                    "example": "any"
-                  },
-                  "img": {
-                    "example": "any"
-                  },
-                  "description": {
-                    "example": "any"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
+      }
+    },
+    "/api/ordenes/hardDelete/{id}": {
       "delete": {
         "tags": [
           "Ordenes"
@@ -935,44 +887,6 @@
       }
     },
     "schemas": {
-<<<<<<< HEAD
-      "ordersSchema": {
-        "type": "object",
-        "properties": {
-          "user_id": {
-            "type": "string",
-            "example": "675659ec9247bd1a5c6a8fe2"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "product_id": {
-                  "type": "string",
-                  "example": "675659ec9247bd1a5c6a8fe2"
-                },
-                "cantidad": {
-                  "type": "number",
-                  "example": 1
-                },
-                "precio": {
-                  "type": "number",
-                  "example": 100
-                }
-              },
-              "required": [
-                "product_id",
-                "cantidad",
-                "precio"
-              ]
-            }
-          }
-        },
-        "required": [
-          "user_id",
-          "items"
-=======
       "loginSchema": {
         "type": "object",
         "properties": {
@@ -1037,7 +951,44 @@
           "username",
           "email",
           "password"
->>>>>>> develop
+        ]
+      },
+      "ordersSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "example": "675659ec9247bd1a5c6a8fe2"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string",
+                  "example": "675659ec9247bd1a5c6a8fe2"
+                },
+                "cantidad": {
+                  "type": "number",
+                  "example": 1
+                },
+                "precio": {
+                  "type": "number",
+                  "example": 100
+                }
+              },
+              "required": [
+                "product_id",
+                "cantidad",
+                "precio"
+              ]
+            }
+          }
+        },
+        "required": [
+          "user_id",
+          "items"
         ]
       }
     }

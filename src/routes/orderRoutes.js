@@ -4,8 +4,7 @@ const {
   getAllOrdersHandler,
   getOneOrderHandler,
   createOrderHandler,
-  updateOrderHandler,
-  deleteOrderHandler,
+  hardDeleteOrderHandler,
 } = require("../handlers/orderHandler");
 
 const orderRouter = Router();
@@ -33,8 +32,6 @@ orderRouter.post(
     */
 );
 
-orderRouter.put("/:id", updateOrderHandler);
-
-orderRouter.delete("/:id", deleteOrderHandler);
+orderRouter.delete("/hardDelete/:id", hardDeleteOrderHandler);
 
 module.exports = orderRouter;

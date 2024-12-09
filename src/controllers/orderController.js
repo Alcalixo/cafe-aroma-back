@@ -1,41 +1,30 @@
-const Order = require('../models/ordersModel'); // Modelo de Mongoose
+const Order = require("../models/ordersModel"); // Modelo de Mongoose
 
 // Crear un nuevo producto
-const createOrderController = async (name, precio, stock, img, description) => {
-  const nuevoProducto = new Order({ name, precio, stock, img, description });
-  const savedProduct = await nuevoProducto.save(); // Guardar en la base de datos
-  console.log(savedProduct);
-  return savedProduct;
+const createOrderController = async (newOrder) => {
+  const lastOrder = await Order.findOne().sort({ nro_orden: -1 });
+  newOrder.nro_orden = lastOrder ? lastOrder.nro_orden + 1 : 1;
+  const savedOrder = await Order.create(newOrder); // Guardar en la base de datos
+  console.log(savedOrder);
+  return savedOrder;
 };
 
-// Obtener todos los productos
+// Obtener todos las ordenes
 const getAllOrderController = async () => {
-  const products = await Order.find(); // Recuperar todos los productos
-  console.log(products);
-  return products;
+  const orders = await Order.find(); // Recuperar todos las ordenes
+  console.log(orders);
+  return orders;
 };
 
-// Obtener un producto por ID
+// Obtener un orden por ID
 const getOrderByIdController = async (id) => {
-  const productById = await Order.findById(id); // Buscar por ID
-  console.log(productById);
-  return productById;
+  const orderById = await Order.findById(id); // Buscar por ID
+  console.log(orderById);
+  return orderById;
 };
 
-// Actualizar un producto
-const updateOrderController = async (id, name, precio, stock, img, description) => {
-  const updatedProduct = await Order.findByIdAndUpdate(
-    id,
-    { name, precio, stock, img, description },
-    { new: true } // Retorna el producto actualizado
-  );
-  console.log(updatedProduct);
-  
-  return updatedProduct;
-};
-
-// Eliminar un producto
-const deleteOrderController = async (id) => {
+// Eliminar una orden (hard delete)
+const hardDeleteOrderController = async (id) => {
   const deletedProduct = await Order.findByIdAndDelete(id); // Elimina por ID
   console.log(deletedProduct);
   return deletedProduct;
@@ -45,6 +34,5 @@ module.exports = {
   createOrderController,
   getAllOrderController,
   getOrderByIdController,
-  updateOrderController,
-  deleteOrderController,
+  hardDeleteOrderController,
 };
