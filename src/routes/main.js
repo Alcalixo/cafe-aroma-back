@@ -1,14 +1,30 @@
-const {Router} = require('express');
-const productRouter = require('./productRoutes');
+const { Router } = require("express");
+const productRouter = require("./productRoutes");
 const mainRouter = Router();
 const userRouter = require("./userRoutes");
 const postRouter = require("./postRoutes");
 
-//productos
-mainRouter.use('/productos',productRouter);
 //usuarios
-mainRouter.use("/users", userRouter);
+mainRouter.use(
+  "/api/users",
+  userRouter
+  /*
+  #swagger.tags = ['Usuarios']
+  #swagger.security = [{
+      "bearerAuth": []
+  }]
+  */
+);
+//productos
+mainRouter.use(
+  "/api/productos",
+  productRouter
+  // #swagger.tags = ['Productos']
+);
 //posteos
-mainRouter.use("/post", postRouter);
+mainRouter.use(
+  "/api/post",
+  postRouter
+  // #swagger.tags = ['Posteos']
+);
 module.exports = mainRouter;
-

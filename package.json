@@ -4,25 +4,27 @@
   "description": "Back-End del proyecto final de Talentos Digitales",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon swagger.js",
+    "swagger": "node swagger.mjs"
   },
   "authors": "Gonzalo Rodríguez, Juan Ignacio Meza Wakahayashi, Leonardo Canteros, Nicolas Sena",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
   },
   "dependencies": {
     "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
-    "jsonwebtoken": "^9.0.2",
     "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.11.0",
     "mongoose": "^8.8.3",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.7"
-
-
   }
 }
