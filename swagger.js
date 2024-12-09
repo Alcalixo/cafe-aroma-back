@@ -4,8 +4,7 @@ const doc = {
   info: {
     version: "", // by default: '1.0.0'
     title: "Café Aroma", // by default: 'REST API'
-    description:
-      "Back-End del proyecto final de Talentos Digitales", // by default: ''
+    description: "Back-End del proyecto final de Talentos Digitales", // by default: ''
   },
   host: "", // by default: 'localhost:3000'
   basePath: "", // by default: '/'
@@ -27,13 +26,18 @@ const doc = {
         scheme: "bearer",
       },
     },
-      schemas: {
-          ordersSchema: {
-              $user_id: '675659ec9247bd1a5c6a8fe2',
-              $items: "45",
-              about: ''
+    schemas: {
+      ordersSchema: {
+        $user_id: "675659ec9247bd1a5c6a8fe2",
+        $items: [
+          {
+            $product_id: "675659ec9247bd1a5c6a8fe2",
+            $cantidad: 1,
+            $precio: 100,
           },
-      }
+        ],
+      },
+    },
   },
   definitions: {}, // by default: empty object
 };

@@ -14,11 +14,7 @@
     }
   ],
   "paths": {
-<<<<<<< HEAD
-    "/users/registrarUsuario": {
-=======
     "/api/users/registrarUsuario": {
->>>>>>> develop
       "post": {
         "tags": [
           "Usuarios"
@@ -37,11 +33,7 @@
         }
       }
     },
-<<<<<<< HEAD
-    "/users/login": {
-=======
     "/api/users/login": {
->>>>>>> develop
       "post": {
         "tags": [
           "Usuarios"
@@ -57,11 +49,7 @@
         }
       }
     },
-<<<<<<< HEAD
-    "/users/admin/usuarios": {
-=======
     "/api/users/admin/usuarios": {
->>>>>>> develop
       "get": {
         "tags": [
           "Usuarios"
@@ -94,11 +82,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "/users/admin/usuariosEliminados": {
-=======
     "/api/users/admin/usuariosEliminados": {
->>>>>>> develop
       "get": {
         "tags": [
           "Usuarios"
@@ -131,11 +115,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "/users/{id}": {
-=======
     "/api/users/{id}": {
->>>>>>> develop
       "get": {
         "tags": [
           "Usuarios"
@@ -176,11 +156,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "/users/username/{user}": {
-=======
     "/api/users/username/{user}": {
->>>>>>> develop
       "get": {
         "tags": [
           "Usuarios"
@@ -231,11 +207,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "/users/editarUsuario/{id}": {
-=======
     "/api/users/editarUsuario/{id}": {
->>>>>>> develop
       "put": {
         "tags": [
           "Usuarios"
@@ -279,11 +251,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "/users/admin/destruirUsuario/{id}": {
-=======
     "/api/users/admin/destruirUsuario/{id}": {
->>>>>>> develop
       "delete": {
         "tags": [
           "Usuarios"
@@ -324,11 +292,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "/users/admin/changeClient/{id}": {
-=======
     "/api/users/admin/changeClient/{id}": {
->>>>>>> develop
       "get": {
         "tags": [
           "Usuarios"
@@ -369,11 +333,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "/users/admin/changeAdmin/{id}": {
-=======
     "/api/users/admin/changeAdmin/{id}": {
->>>>>>> develop
       "get": {
         "tags": [
           "Usuarios"
@@ -414,11 +374,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "/users/deleteUser/{id}": {
-=======
     "/api/users/deleteUser/{id}": {
->>>>>>> develop
       "get": {
         "tags": [
           "Usuarios"
@@ -459,11 +415,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "/usersadmin/resetUser/{id}": {
-=======
     "/api/usersadmin/resetUser/{id}": {
->>>>>>> develop
       "get": {
         "tags": [
           "Usuarios"
@@ -504,11 +456,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "/users/cambiarContraseña": {
-=======
     "/api/users/cambiarContraseña": {
->>>>>>> develop
       "post": {
         "tags": [
           "Usuarios"
@@ -564,11 +512,7 @@
         }
       }
     },
-<<<<<<< HEAD
-    "/productos/": {
-=======
     "/api/productos/": {
->>>>>>> develop
       "get": {
         "tags": [
           "Productos"
@@ -633,11 +577,7 @@
         }
       }
     },
-<<<<<<< HEAD
-    "/productos/{id}": {
-=======
     "/api/productos/{id}": {
->>>>>>> develop
       "get": {
         "tags": [
           "Productos"
@@ -737,8 +677,7 @@
         }
       }
     },
-<<<<<<< HEAD
-    "/orders/": {
+    "/api/ordenes/": {
       "get": {
         "tags": [
           "Ordenes"
@@ -771,14 +710,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/someSchema"
+                "$ref": "#/components/schemas/ordersSchema"
               }
             }
           }
         }
       }
     },
-    "/orders/{id}": {
+    "/api/ordenes/{id}": {
       "get": {
         "tags": [
           "Ordenes"
@@ -878,10 +817,7 @@
         }
       }
     },
-    "/post/": {
-=======
     "/api/post/": {
->>>>>>> develop
       "get": {
         "tags": [
           "Posteos"
@@ -987,12 +923,29 @@
             "example": "675659ec9247bd1a5c6a8fe2"
           },
           "items": {
-            "type": "string",
-            "example": "45"
-          },
-          "about": {
-            "type": "string",
-            "example": ""
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string",
+                  "example": "675659ec9247bd1a5c6a8fe2"
+                },
+                "cantidad": {
+                  "type": "number",
+                  "example": 1
+                },
+                "precio": {
+                  "type": "number",
+                  "example": 100
+                }
+              },
+              "required": [
+                "product_id",
+                "cantidad",
+                "precio"
+              ]
+            }
           }
         },
         "required": [
