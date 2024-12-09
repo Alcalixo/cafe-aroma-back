@@ -1,31 +1,37 @@
 const mongoose = require('mongoose');
 
 // Definir el esquema de la Orden
-const orderSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true, // El nombre es obligatorio
-      trim: true, // Elimina espacios innecesarios
-    },
-    precio: {
-      type: Number,
-      required: true, // El precio es obligatorio
-    },
-    stock: {
-      type: Number,
-      required: true, // El stock es obligatorio
-    },
-    img: {
-      type: String,
-      required: true, // la imgen es obligatorio
-    },
-    description: {
-      type: String,
-      required: true, // la descripcion es obligatorio
-    },
-    
+const orderSchema = new mongoose.Schema({
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User', 
+    required: true 
   },
+  items: [
+    {
+      product_id: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Product', 
+        required: true 
+      },
+      cantidad: {
+        type: Number, 
+        required: true, 
+        min: 1 
+      },
+      precio: {
+        type: Number, 
+        required: true,
+        min: 0 
+      },
+    },
+  ],
+  eliminado: {
+    type: String,
+    default: "NO", // Valor por defecto
+    minlength: 2, // Mínimo 2 caracteres
+    maxlength: 2, // Máximo 2 caracteres
+  }},
   {
     timestamps: true, // Esto agrega automáticamente las fechas de creación y actualización
   }
