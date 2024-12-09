@@ -1,12 +1,14 @@
-const {Router} = require('express');
-const productRouter = require('./productRoutes');
+const { Router } = require("express");
+const productRouter = require("./productRoutes");
 const mainRouter = Router();
 const userRouter = require("./userRoutes");
 const orderRouter = require("./orderRoutes");
 const postRouter = require("./postRoutes");
 
 //usuarios
-mainRouter.use("/users", userRouter
+mainRouter.use(
+  "/api/users",
+  userRouter
   /*
   #swagger.tags = ['Usuarios']
   #swagger.security = [{
@@ -14,20 +16,24 @@ mainRouter.use("/users", userRouter
   }]
   */
 );
-
 //productos
-mainRouter.use('/productos',productRouter
-// #swagger.tags = ['Productos']
+mainRouter.use(
+  "/api/productos",
+  productRouter
+  // #swagger.tags = ['Productos']
+);
+
+mainRouter.use(
+  "/api/ordenes",
+  orderRouter
+  // #swagger.tags = ['Ordenes']
 );
 
 //posteos
-mainRouter.use("/orders", orderRouter
-// #swagger.tags = ['Ordenes']
-);
-
-mainRouter.use("/post", postRouter
-// #swagger.tags = ['Posteos']
+mainRouter.use(
+  "/api/post",
+  postRouter
+  // #swagger.tags = ['Posteos']
 );
 
 module.exports = mainRouter;
-
