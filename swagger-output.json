@@ -30,6 +30,16 @@
           "400": {
             "description": "Bad Request"
           }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/registerSchema"
+              }
+            }
+          }
         }
       }
     },
@@ -45,6 +55,16 @@
           },
           "400": {
             "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/loginSchema"
+              }
+            }
           }
         }
       }
@@ -772,6 +792,74 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "loginSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "tu@email.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "tu_clave"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "registerSchema": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "number",
+            "example": 12345678
+          },
+          "nombre": {
+            "type": "string",
+            "example": "tu_nombre"
+          },
+          "apellido": {
+            "type": "string",
+            "example": "tu_apellido"
+          },
+          "username": {
+            "type": "string",
+            "example": "tu_username"
+          },
+          "email": {
+            "type": "string",
+            "example": "tu@email.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "tu_clave"
+          },
+          "provincia": {
+            "type": "string",
+            "example": "tu_provincia"
+          },
+          "ciudad": {
+            "type": "string",
+            "example": "tu_ciudad"
+          },
+          "domicilio": {
+            "type": "string",
+            "example": "tu_domicilio"
+          }
+        },
+        "required": [
+          "dni",
+          "nombre",
+          "apellido",
+          "username",
+          "email",
+          "password"
+        ]
       }
     }
   }

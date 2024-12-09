@@ -4,8 +4,7 @@ const doc = {
   info: {
     version: "", // by default: '1.0.0'
     title: "Café Aroma", // by default: 'REST API'
-    description:
-      "Back-End del proyecto final de Talentos Digitales", // by default: ''
+    description: "Back-End del proyecto final de Talentos Digitales", // by default: ''
   },
   host: "", // by default: 'localhost:3000'
   basePath: "", // by default: '/'
@@ -25,6 +24,23 @@ const doc = {
       bearerAuth: {
         type: "http",
         scheme: "bearer",
+      },
+    },
+    schemas: {
+      loginSchema: {
+        $email: "tu@email.com",
+        $password: "tu_clave",
+      },
+      registerSchema: {
+        $dni: 12345678,
+        $nombre: "tu_nombre",
+        $apellido: "tu_apellido",
+        $username: "tu_username",
+        $email: "tu@email.com",
+        $password: "tu_clave",
+        provincia: "tu_provincia",
+        ciudad: "tu_ciudad",
+        domicilio: "tu_domicilio",
       },
     },
   },
