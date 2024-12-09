@@ -5,10 +5,21 @@ const userRouter = require("./userRoutes");
 const postRouter = require("./postRoutes");
 
 //productos
-mainRouter.use('/productos',productRouter);
+mainRouter.use('/productos',productRouter
+// #swagger.tags = ['Productos']
+);
 //usuarios
-mainRouter.use("/users", userRouter);
+mainRouter.use("/users", userRouter
+  /*
+  #swagger.tags = ['Usuarios']
+  #swagger.security = [{
+      "bearerAuth": []
+  }]
+  */
+);
 //posteos
-mainRouter.use("/post", postRouter);
+mainRouter.use("/post", postRouter
+// #swagger.tags = ['Posteos']
+);
 module.exports = mainRouter;
 
