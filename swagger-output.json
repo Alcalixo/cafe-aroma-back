@@ -30,12 +30,7 @@
           "400": {
             "description": "Bad Request"
           }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       }
     },
     "/users/login": {
@@ -51,12 +46,7 @@
           "400": {
             "description": "Bad Request"
           }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       }
     },
     "/users/admin/usuarios": {
