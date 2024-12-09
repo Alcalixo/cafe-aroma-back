@@ -27,6 +27,21 @@ const doc = {
       },
     },
     schemas: {
+      loginSchema: {
+        $email: "tu@email.com",
+        $password: "tu_clave",
+      },
+      registerSchema: {
+        $dni: 12345678,
+        $nombre: "tu_nombre",
+        $apellido: "tu_apellido",
+        $username: "tu_username",
+        $email: "tu@email.com",
+        $password: "tu_clave",
+        provincia: "tu_provincia",
+        ciudad: "tu_ciudad",
+        domicilio: "tu_domicilio",
+      },
       ordersSchema: {
         $user_id: "675659ec9247bd1a5c6a8fe2",
         $items: [
