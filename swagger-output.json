@@ -697,6 +697,98 @@
         }
       }
     },
+    "/api/ordenes/": {
+      "get": {
+        "tags": [
+          "Ordenes"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Ordenes"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ordersSchema"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ordenes/{id}": {
+      "get": {
+        "tags": [
+          "Ordenes"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/ordenes/hardDelete/{id}": {
+      "delete": {
+        "tags": [
+          "Ordenes"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
     "/api/post/": {
       "get": {
         "tags": [
@@ -859,6 +951,44 @@
           "username",
           "email",
           "password"
+        ]
+      },
+      "ordersSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "example": "675659ec9247bd1a5c6a8fe2"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string",
+                  "example": "675659ec9247bd1a5c6a8fe2"
+                },
+                "cantidad": {
+                  "type": "number",
+                  "example": 1
+                },
+                "precio": {
+                  "type": "number",
+                  "example": 100
+                }
+              },
+              "required": [
+                "product_id",
+                "cantidad",
+                "precio"
+              ]
+            }
+          }
+        },
+        "required": [
+          "user_id",
+          "items"
         ]
       }
     }

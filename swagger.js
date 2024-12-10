@@ -42,6 +42,16 @@ const doc = {
         ciudad: "tu_ciudad",
         domicilio: "tu_domicilio",
       },
+      ordersSchema: {
+        $user_id: "675659ec9247bd1a5c6a8fe2",
+        $items: [
+          {
+            $product_id: "675659ec9247bd1a5c6a8fe2",
+            $cantidad: 1,
+            $precio: 100,
+          },
+        ],
+      },
     },
   },
   definitions: {}, // by default: empty object
