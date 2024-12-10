@@ -8,6 +8,8 @@ const {
 } = require("../src/controllers/productController");
 const { createOrderController } = require("../src/controllers/orderController");
 const connectDB = require("../src/config/db");
+const dotenv = require("dotenv");
+const getimgUnsplash = require("./getImgUnsplash");
 
 const currentDir = path.dirname(__filename);
 const dataDir = path.join(currentDir, "sample_data");
@@ -52,6 +54,10 @@ async function seedUsers() {
   }
 }
 
+dotenv.config();
+
+const unsplash = process.env.UNSPLASH_ACCESS_KEY || null;
+
 async function seedProducts() {
   // Read JSON file
   const dataFile = path.join(dataDir, "cafes.json");
@@ -65,11 +71,13 @@ async function seedProducts() {
 
     // Creating products
     console.log("Creating products...");
-    for (const result of results.slice(0, 2)) {
+    for (const result of results) {
       let name = result.name;
       let precio = result.precio;
       let stock = result.stock;
-      let img = result.img;
+      let [img] = unsplash
+        ? await getimgUnsplash(unsplash, result.name, 1)
+        : result.img;
       let description = result.description;
       try {
         const newProduct = await createProductController(
