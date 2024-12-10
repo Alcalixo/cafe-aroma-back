@@ -1,6 +1,7 @@
 const {Router} = require('express');
-const {getAllProductsHandler, getOneproductHandler , createProductHandler,updateProductHandler,deleteProductHandler,} = require('../handlers/productHandler');
 const productRouter = Router();
+const {getAllProductsHandler, getOneproductHandler , createProductHandler,updateProductHandler,deleteProductHandler,} = require('../handlers/productHandler');
+const authUser = require("../middlewares/authUser");
 
 
 //productos
