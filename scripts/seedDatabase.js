@@ -65,7 +65,7 @@ async function seedProducts() {
 
     // Creating products
     console.log("Creating products...");
-    for (const result of results) {
+    for (const result of results.slice(0, 2)) {
       let name = result.name;
       let precio = result.precio;
       let stock = result.stock;
@@ -90,73 +90,60 @@ async function seedProducts() {
   }
 }
 
+// Creating Orders
+async function seedOrders(userIds, productIds) {
+  const orders = [];
+  console.log(userIds);
+  console.log(productIds);
+
+  for (let i = 0; i < 1000; i++) {
+    const order = {
+      user_id: userIds[Math.floor(Math.random() * userIds.length)],
+      items: [],
+    };
+
+    const numProducts = Math.floor(Math.random() * 5) + 1;
+    for (let j = 0; j < numProducts; j++) {
+      const productId =
+        productIds[Math.floor(Math.random() * productIds.length)];
+      const price = Math.round(Math.random() * 10000 * 100) / 100;
+      const quantity = Math.floor(Math.random() * 3) + 1;
+      order.items.push({
+        product_id: productId,
+        precio: price,
+        cantidad: quantity,
+      });
+    }
+
+    orders.push(order);
+  }
+  console.log("Creating orders...");
+  for (const order of orders) {
+    try {
+      await createOrderController(order);
+    } catch (error) {
+      console.error(`Error creating order: ${error.message}`);
+    }
+  }
+}
+
 seedUsers()
-  .then(() => {
+  .then((userIds) => {
     console.log("User's script execution completed.");
-    return seedProducts();
+    return seedProducts().then((productIds) => {
+      console.log("Product's script execution completed.");
+      return { userIds, productIds };
+    });
   })
-  .then((productIds) => {
-    console.log("Product's script execution completed.");
+  .then(({ userIds, productIds }) => {
+    console.log("Creating orders...");
+    return seedOrders(userIds, productIds);
+  })
+  .then(() => {
+    console.log("Order's script execution completed.");
     process.exit();
-    // Aquí puedes utilizar los IDs de los productos si lo necesitas
-    // ...
-    // Llamar a otras funciones o detener el script según sea necesario
   })
   .catch((error) => {
     console.error("Error:", error);
     process.exit(1);
   });
-// Creating Orders
-// async function seedOrders() {
-//   const orders = [];
-//   // console.log(userIds);
-//   // console.log(productIds);
-
-//   for (let i = 0; i < 10; i++) {
-//     const order = {
-//       user_id: userIds[Math.floor(Math.random() * userIds.length)],
-//       order_products: [],
-//     };
-
-//     const numProducts = Math.floor(Math.random() * 5) + 1;
-//     for (let j = 0; j < numProducts; j++) {
-//       const productId =
-//         productIds[Math.floor(Math.random() * productIds.length)];
-//       const price = Math.round(Math.random() * 10000 * 100) / 100;
-//       const quantity = Math.floor(Math.random() * 3) + 1;
-//       order.order_products.push({
-//         product_id: productId,
-//         precio: price,
-//         cantidad: quantity,
-//       });
-//     }
-
-//     orders.push(order);
-//   }
-//   console.log("Creating orders...");
-//   for (const order of orders) {
-//     try {
-//       await createOrderController(order);
-//     } catch (error) {
-//       console.error(`Error creating order: ${error.message}`);
-//     }
-//   }
-// }
-
-// seedUsers()
-//   .then(() => {
-//     console.log("User's script execution completed.");
-//     seedProducts();
-//   })
-//   // .then(() => {
-//   //   console.log("Product's script execution completed.");
-//   //   return seedOrders(userIds, productIds);
-//   // })
-//   .then(() => {
-//     console.log("Order's script execution completed.");
-//     process.exit();
-//   })
-//   .catch((error) => {
-//     console.error("Error:", error);
-//     process.exit(1);
-//   });
