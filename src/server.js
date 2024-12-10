@@ -2,17 +2,21 @@
 const express = require("express");
 //middleware para el registro y depuracion de las solicitudes http
 const morgan = require("morgan");
+//middleware para el manejo de CORS
+const cors = require("cors");
 const mainRouter = require("./routes/main");
 const connectDB = require("./config/db"); // Importa la configuración de la base de datos
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("../swagger-output.json");
 
 const app = express();
 
+app.use(cors());
+
 //debo indicarle a express que el cuerpo "body" de la solicitud vendrá en JSON y debe convertir a Javascript
 //debe suceder antes de llamar a mainRouter o habrá una excepcion al no reconocer la informacion recibida.
-app.use(express.json());
 
 app.use(morgan("dev"));
-
 // Middleware para parsear JSON
 app.use(express.json());
 
@@ -24,8 +28,12 @@ app.use((req, res, next) => {
 });
 
 // Rutas
-app.use("/api", mainRouter);
+app.use(mainRouter);
 
 // Conectar a la base de datos
 connectDB();
+
+// Swagger
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
 module.exports = app;
