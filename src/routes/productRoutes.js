@@ -10,6 +10,7 @@ productRouter.get("/", getAllProductsHandler);
 productRouter.get("/:id",
     authUser.authenticate,
     authUser.authorize(["admin"]),
+    
     getOneproductHandler );
 
 productRouter.post("/", 
