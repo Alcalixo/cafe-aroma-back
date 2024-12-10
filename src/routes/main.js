@@ -4,6 +4,7 @@ const mainRouter = Router();
 const userRouter = require("./userRoutes");
 const orderRouter = require("./orderRoutes");
 const postRouter = require("./postRoutes");
+const commentRouter = require("./commentRoutes");
 
 //usuarios
 mainRouter.use(
@@ -34,6 +35,12 @@ mainRouter.use(
   "/api/post",
   postRouter
   // #swagger.tags = ['Posteos']
+);
+
+//comentarios
+mainRouter.use(
+  "/api/comentarios",
+  commentRouter
 );
 
 module.exports = mainRouter;

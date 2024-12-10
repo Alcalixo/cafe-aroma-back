@@ -7,7 +7,7 @@
     "dev": "nodemon swagger.js",
     "swagger": "node swagger.mjs"
   },
-  "authors": "Gonzalo Rodríguez, Juan Ignacio Meza Wakahayashi, Leonardo Canteros, Nicolas Sena",
+  "authors": "Gonzalo Rodríguez, Juan Ignacio Meza Wakahayashi, Leonardo Canteros, Nicolas Sena, Fernando Corrales",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.1.7",
