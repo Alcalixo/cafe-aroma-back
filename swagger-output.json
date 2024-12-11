@@ -584,28 +584,17 @@
             "description": "Forbidden"
           }
         },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "example": "any"
-                  },
-                  "precio": {
-                    "example": "any"
-                  },
-                  "stock": {
-                    "example": "any"
-                  },
-                  "img": {
-                    "example": "any"
-                  },
-                  "description": {
-                    "example": "any"
-                  }
-                }
+                "$ref": "#/components/schemas/productSchema"
               }
             }
           }
@@ -648,7 +637,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -686,28 +680,17 @@
             "description": "Forbidden"
           }
         },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "example": "any"
-                  },
-                  "precio": {
-                    "example": "any"
-                  },
-                  "stock": {
-                    "example": "any"
-                  },
-                  "img": {
-                    "example": "any"
-                  },
-                  "description": {
-                    "example": "any"
-                  }
-                }
+                "$ref": "#/components/schemas/productSchema"
               }
             }
           }
@@ -748,7 +731,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/ordenes/admin/verOrdenes": {
@@ -776,7 +764,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/ordenes/admin/{id}": {
@@ -812,7 +805,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "patch": {
         "tags": [
@@ -846,7 +844,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/ordenes/crearPedido": {
@@ -878,12 +881,17 @@
             "description": "Forbidden"
           }
         },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ordersSchema"
+                "$ref": "#/components/schemas/orderSchema"
               }
             }
           }
@@ -923,7 +931,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/ordenes/admin/reset/{id}": {
@@ -959,7 +972,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/ordenes/admin/verOrdenesAnuladas": {
@@ -987,7 +1005,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/ordenes/modificarOrden/{id}": {
@@ -1025,6 +1048,21 @@
           },
           "403": {
             "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/orderSchema"
+              }
+            }
           }
         }
       }
@@ -1131,6 +1169,16 @@
           "400": {
             "description": "Bad Request"
           }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/commentSchema"
+              }
+            }
+          }
         }
       }
     },
@@ -1159,7 +1207,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/comentarios/admin/comentariosLeidos": {
@@ -1187,7 +1240,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/comentarios/{id}": {
@@ -1223,7 +1281,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/comentarios/admin/eliminarComentario/{id}": {
@@ -1259,7 +1322,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/comentarios/marcarComoLeido/{id}": {
@@ -1295,7 +1363,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/comentarios/marcarComoNoLeido/{id}": {
@@ -1331,7 +1404,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/mercadoPago/createPreference": {
@@ -1349,15 +1427,11 @@
           }
         },
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "map((item": {
-                    "example": "any"
-                  }
-                }
+                "$ref": "#/components/schemas/mercadoPagoSchema"
               }
             }
           }
@@ -1439,7 +1513,39 @@
           "password"
         ]
       },
-      "ordersSchema": {
+      "productSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "cappuccino"
+          },
+          "precio": {
+            "type": "number",
+            "example": 1024.56
+          },
+          "stock": {
+            "type": "number",
+            "example": 10
+          },
+          "img": {
+            "type": "string",
+            "example": "http://dummyimage.com/300x300.png/ff4444/ffffff"
+          },
+          "description": {
+            "type": "string",
+            "example": "Lorem Ipsum"
+          }
+        },
+        "required": [
+          "name",
+          "precio",
+          "stock",
+          "img",
+          "description"
+        ]
+      },
+      "orderSchema": {
         "type": "object",
         "properties": {
           "user_id": {
@@ -1457,11 +1563,11 @@
                 },
                 "cantidad": {
                   "type": "number",
-                  "example": 1
+                  "example": 2
                 },
                 "precio": {
                   "type": "number",
-                  "example": 100
+                  "example": 1255.65
                 }
               },
               "required": [
@@ -1475,6 +1581,61 @@
         "required": [
           "user_id",
           "items"
+        ]
+      },
+      "mercadoPagoSchema": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "nombre": {
+                  "type": "string",
+                  "example": "Cappuccino"
+                },
+                "cantidad": {
+                  "type": "number",
+                  "example": 3
+                },
+                "precio": {
+                  "type": "number",
+                  "example": 1024.56
+                }
+              },
+              "required": [
+                "nombre",
+                "cantidad",
+                "precio"
+              ]
+            }
+          }
+        },
+        "required": [
+          "items"
+        ]
+      },
+      "commentSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "tu@email.com"
+          },
+          "asunto": {
+            "type": "string",
+            "example": "Lorem Ipsum"
+          },
+          "description": {
+            "type": "string",
+            "example": "Lorem Ipsum"
+          }
+        },
+        "required": [
+          "email",
+          "asunto",
+          "description"
         ]
       }
     }

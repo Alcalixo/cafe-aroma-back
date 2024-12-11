@@ -22,13 +22,23 @@ mainRouter.use(
 mainRouter.use(
   "/api/productos",
   productRouter
-  // #swagger.tags = ['Productos']
+  /*
+  #swagger.tags = ['Productos']
+  #swagger.security = [{
+      "bearerAuth": []
+  }]
+  */
 );
 
 mainRouter.use(
   "/api/ordenes",
   orderRouter
-  // #swagger.tags = ['Ordenes']
+  /*
+  #swagger.tags = ['Ordenes']
+  #swagger.security = [{
+      "bearerAuth": []
+  }]
+  */
 );
 
 //posteos
@@ -42,7 +52,12 @@ mainRouter.use(
 mainRouter.use(
   "/api/comentarios",
   commentRouter
-  // #swagger.tags = ['Comentarios']
+  /*
+  #swagger.tags = ['Comentarios']
+  #swagger.security = [{
+      "bearerAuth": []
+  }]
+  */
 );
 
 //Mercado Pago
