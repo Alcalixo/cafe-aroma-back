@@ -5,6 +5,7 @@ const userRouter = require("./userRoutes");
 const orderRouter = require("./orderRoutes");
 const postRouter = require("./postRoutes");
 const commentRouter = require("./commentRoutes");
+const mercadoPagoRouter = require("./mercadoPagoRoutes");
 
 //usuarios
 mainRouter.use(
@@ -41,6 +42,14 @@ mainRouter.use(
 mainRouter.use(
   "/api/comentarios",
   commentRouter
+  // #swagger.tags = ['Comentarios']
+);
+
+//Mercado Pago
+mainRouter.use(
+  "/api/mercadoPago",
+  mercadoPagoRouter
+  // #swagger.tags = ['Mercado Pago']
 );
 
 module.exports = mainRouter;

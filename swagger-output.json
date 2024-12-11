@@ -313,7 +313,7 @@
       }
     },
     "/api/users/admin/changeClient/{id}": {
-      "get": {
+      "patch": {
         "tags": [
           "Usuarios"
         ],
@@ -354,7 +354,7 @@
       }
     },
     "/api/users/admin/changeAdmin/{id}": {
-      "get": {
+      "patch": {
         "tags": [
           "Usuarios"
         ],
@@ -395,7 +395,7 @@
       }
     },
     "/api/users/deleteUser/{id}": {
-      "get": {
+      "patch": {
         "tags": [
           "Usuarios"
         ],
@@ -436,7 +436,7 @@
       }
     },
     "/api/usersadmin/resetUser/{id}": {
-      "get": {
+      "patch": {
         "tags": [
           "Usuarios"
         ],
@@ -477,7 +477,7 @@
       }
     },
     "/api/users/cambiarContraseña": {
-      "post": {
+      "put": {
         "tags": [
           "Usuarios"
         ],
@@ -751,32 +751,131 @@
         }
       }
     },
-    "/api/ordenes/": {
+    "/api/ordenes/admin/verOrdenes": {
       "get": {
         "tags": [
           "Ordenes"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
           },
-          "500": {
-            "description": "Internal Server Error"
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ordenes/admin/{id}": {
+      "get": {
+        "tags": [
+          "Ordenes"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
+      "patch": {
+        "tags": [
+          "Ordenes"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ordenes/crearPedido": {
       "post": {
         "tags": [
           "Ordenes"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         },
         "requestBody": {
@@ -791,33 +890,7 @@
         }
       }
     },
-    "/api/ordenes/{id}": {
-      "get": {
-        "tags": [
-          "Ordenes"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
-    },
-    "/api/ordenes/hardDelete/{id}": {
+    "/api/ordenes/admin/hardDelete/{id}": {
       "delete": {
         "tags": [
           "Ordenes"
@@ -831,6 +904,113 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ordenes/admin/reset/{id}": {
+      "patch": {
+        "tags": [
+          "Ordenes"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ordenes/admin/verOrdenesAnuladas": {
+      "get": {
+        "tags": [
+          "Ordenes"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ordenes/modificarOrden/{id}": {
+      "put": {
+        "tags": [
+          "Ordenes"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -839,6 +1019,12 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
@@ -934,6 +1120,9 @@
     },
     "/api/comentarios/crearComentario": {
       "post": {
+        "tags": [
+          "Comentarios"
+        ],
         "description": "",
         "responses": {
           "201": {
@@ -947,6 +1136,9 @@
     },
     "/api/comentarios/admin/comentarios": {
       "get": {
+        "tags": [
+          "Comentarios"
+        ],
         "description": "",
         "parameters": [
           {
@@ -972,6 +1164,9 @@
     },
     "/api/comentarios/admin/comentariosLeidos": {
       "get": {
+        "tags": [
+          "Comentarios"
+        ],
         "description": "",
         "parameters": [
           {
@@ -997,6 +1192,9 @@
     },
     "/api/comentarios/{id}": {
       "get": {
+        "tags": [
+          "Comentarios"
+        ],
         "description": "",
         "parameters": [
           {
@@ -1030,6 +1228,9 @@
     },
     "/api/comentarios/admin/eliminarComentario/{id}": {
       "delete": {
+        "tags": [
+          "Comentarios"
+        ],
         "description": "",
         "parameters": [
           {
@@ -1063,6 +1264,9 @@
     },
     "/api/comentarios/marcarComoLeido/{id}": {
       "put": {
+        "tags": [
+          "Comentarios"
+        ],
         "description": "",
         "parameters": [
           {
@@ -1096,6 +1300,9 @@
     },
     "/api/comentarios/marcarComoNoLeido/{id}": {
       "put": {
+        "tags": [
+          "Comentarios"
+        ],
         "description": "",
         "parameters": [
           {
@@ -1123,6 +1330,36 @@
           },
           "403": {
             "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/mercadoPago/createPreference": {
+      "post": {
+        "tags": [
+          "Mercado Pago"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "map((item": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
           }
         }
       }
