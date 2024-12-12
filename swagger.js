@@ -61,9 +61,9 @@ const doc = {
       },
       mercadoPagoSchema: [
         {
-          $nombre: "Cappuccino",
-          $cantidad: 3,
-          $precio: 1024.56,
+          $title: "Cappuccino",
+          $quantity: 3,
+          $price: 1024.56,
         },
       ],
       commentSchema: {

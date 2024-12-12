@@ -1549,23 +1549,23 @@
         "items": {
           "type": "object",
           "properties": {
-            "nombre": {
+            "title": {
               "type": "string",
               "example": "Cappuccino"
             },
-            "cantidad": {
+            "quantity": {
               "type": "number",
               "example": 3
             },
-            "precio": {
+            "price": {
               "type": "number",
               "example": 1024.56
             }
           },
           "required": [
-            "nombre",
-            "cantidad",
-            "precio"
+            "title",
+            "quantity",
+            "price"
           ]
         }
       },
