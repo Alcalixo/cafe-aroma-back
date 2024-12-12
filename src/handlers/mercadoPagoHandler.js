@@ -4,7 +4,7 @@ const {
 
 const createPreferenceHandler = async (req, res) => {
   try {
-    const body = {
+    const mp = {
       items: req.body.map((item) => ({
         title: item.nombre,
         quantity: Number(item.cantidad),
@@ -18,7 +18,7 @@ const createPreferenceHandler = async (req, res) => {
       },
       auto_return: "approved",
     };
-    const response = await createPrefenceController(body);
+    const response = await createPrefenceController(mp);
     res.json({ id: response.id });
   } catch (error) {
     res.status(400).send({ Error: error.message });
