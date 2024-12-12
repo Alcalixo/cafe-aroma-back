@@ -59,15 +59,13 @@ const doc = {
           },
         ],
       },
-      mercadoPagoSchema: {
-        $items: [
-          {
-            $nombre: "Cappuccino",
-            $cantidad: 3,
-            $precio: 1024.56,
-          },
-        ],
-      },
+      mercadoPagoSchema: [
+        {
+          $nombre: "Cappuccino",
+          $cantidad: 3,
+          $precio: 1024.56,
+        },
+      ],
       commentSchema: {
         $email: "tu@email.com",
         $asunto: "Lorem Ipsum",

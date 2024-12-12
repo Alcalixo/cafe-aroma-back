@@ -1545,37 +1545,29 @@
         ]
       },
       "mercadoPagoSchema": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "nombre": {
-                  "type": "string",
-                  "example": "Cappuccino"
-                },
-                "cantidad": {
-                  "type": "number",
-                  "example": 3
-                },
-                "precio": {
-                  "type": "number",
-                  "example": 1024.56
-                }
-              },
-              "required": [
-                "nombre",
-                "cantidad",
-                "precio"
-              ]
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "nombre": {
+              "type": "string",
+              "example": "Cappuccino"
+            },
+            "cantidad": {
+              "type": "number",
+              "example": 3
+            },
+            "precio": {
+              "type": "number",
+              "example": 1024.56
             }
-          }
-        },
-        "required": [
-          "items"
-        ]
+          },
+          "required": [
+            "nombre",
+            "cantidad",
+            "precio"
+          ]
+        }
       },
       "commentSchema": {
         "type": "object",
