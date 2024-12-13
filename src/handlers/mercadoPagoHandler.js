@@ -12,12 +12,13 @@ const createPreferenceHandler = async (req, res) => {
         currency_id: "ARS",
       })),
       back_urls: {
-        success: "https://martin-juncos.github.io/success/",
-        failure: "https://martin-juncos.github.io/failure/",
-        pending: "https://martin-juncos.github.io/pending/",
+        success: "https://fscorrales.github.io/success_page/",
+        failure: "https://fscorrales.github.io/failure_page/",
+        pending: "https://fscorrales.github.io/pending_page/",
       },
       auto_return: "approved",
     };
+    console.log(mp);
     const response = await createPrefenceController(mp);
     res.json({ id: response.id });
   } catch (error) {
