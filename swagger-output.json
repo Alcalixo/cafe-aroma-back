@@ -895,27 +895,12 @@
           "Ordenes"
         ],
         "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "responses": {
           "201": {
             "description": "Created"
           },
           "400": {
             "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1360,12 +1345,22 @@
         ]
       }
     },
-    "/api/mercadoPago/createPreference": {
+    "/api/mercadoPago/createPreference/{order_id}": {
       "post": {
         "tags": [
           "Mercado Pago"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -1402,13 +1397,6 @@
           },
           {
             "name": "status",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "external_reference",
             "in": "query",
             "schema": {
               "type": "string"
@@ -1559,6 +1547,14 @@
                 "precio": {
                   "type": "number",
                   "example": 1255.65
+                },
+                "status": {
+                  "type": "string",
+                  "example": "pending"
+                },
+                "payment_id": {
+                  "type": "string",
+                  "example": "675659ec9247bd1a5c6a8fe2"
                 }
               },
               "required": [

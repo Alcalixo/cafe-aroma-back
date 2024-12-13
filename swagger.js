@@ -56,6 +56,8 @@ const doc = {
             $product_id: "675659ec9247bd1a5c6a8fe2",
             $cantidad: 2,
             $precio: 1255.65,
+            status: "pending",
+            payment_id: "675659ec9247bd1a5c6a8fe2",
           },
         ],
       },
