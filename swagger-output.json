@@ -1547,14 +1547,6 @@
                 "precio": {
                   "type": "number",
                   "example": 1255.65
-                },
-                "status": {
-                  "type": "string",
-                  "example": "pending"
-                },
-                "payment_id": {
-                  "type": "string",
-                  "example": "675659ec9247bd1a5c6a8fe2"
                 }
               },
               "required": [
@@ -1563,6 +1555,14 @@
                 "precio"
               ]
             }
+          },
+          "status": {
+            "type": "string",
+            "example": "pending"
+          },
+          "payment_id": {
+            "type": "string",
+            "example": "675659ec9247bd1a5c6a8fe2"
           }
         },
         "required": [
