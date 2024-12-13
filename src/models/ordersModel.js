@@ -32,6 +32,17 @@ const orderSchema = new mongoose.Schema(
         },
       },
     ],
+    status: {
+      type: String,
+      default: "pending", // approved or pending
+      required: false,
+      minlength: 7, // Mínimo 7 caracteres
+      maxlength: 8, // Máximo 8 caracteres
+    },
+    payment_id: {
+      type: String,
+      unique: true,
+    },
     eliminado: {
       type: String,
       default: "NO", // Valor por defecto

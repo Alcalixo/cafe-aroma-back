@@ -24,8 +24,8 @@ orderRouter.get(
 // Crear una nueva orden
 orderRouter.post(
   "/crearPedido",
-  authUser.authenticate,
-  authUser.authorize(["cliente"]),
+  // authUser.authenticate,
+  // authUser.authorize(["cliente"]),
   orderHandler.createOrderHandler
   /*  
   #swagger.requestBody = {
