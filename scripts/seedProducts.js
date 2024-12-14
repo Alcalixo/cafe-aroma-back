@@ -35,7 +35,7 @@ async function seedProducts() {
     console.log("Creating products...");
     for (const result of results) {
       let name = result.title;
-      let precio = Math.round((Math.random() * 3000 + 1000) * 100) / 100;
+      let precio = Math.floor(Math.random() * 2001) + 1000;
       let stock = Math.floor(Math.random() * 51) + 50;
       let img = result.image;
       let description = result.description;
