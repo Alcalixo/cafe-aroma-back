@@ -41,6 +41,7 @@ const orderSchema = new mongoose.Schema(
     },
     payment_id: {
       type: String,
+      default: "pending", // Valor por defecto
     },
     merchant_order_id: {
       type: String,
