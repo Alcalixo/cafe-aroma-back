@@ -41,7 +41,6 @@ const orderSchema = new mongoose.Schema(
     },
     payment_id: {
       type: String,
-      unique: true,
     },
     eliminado: {
       type: String,
