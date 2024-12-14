@@ -1,6 +1,8 @@
 const {
   createPrefenceController,
+  returnController,
 } = require("../controllers/mercadoPagoController");
+require("dotenv").config();
 
 const createPreferenceHandler = async (req, res) => {
   try {
@@ -54,7 +56,7 @@ const returnHandler = async (req, res) => {
     // merchant_order_id	ID (identifier) of the payment order generated in Mercado Pago.
 
     // Responde al cliente o redirige a una página de éxito
-    // res.redirect("https://fscorrales.github.io/success_page/"); // Redirige a una página de éxito en tu frontend
+    res.redirect(process.env.FRONTEND_URL); // Redirige a una página de éxito en tu frontend
   } catch (error) {
     res.status(400).send({ Error: error.message });
   }
