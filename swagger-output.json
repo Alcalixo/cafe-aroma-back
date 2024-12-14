@@ -1673,7 +1673,7 @@
             "type": "string",
             "example": "Lorem Ipsum"
           },
-          "description": {
+          "descripcion": {
             "type": "string",
             "example": "Lorem Ipsum"
           }
@@ -1681,7 +1681,7 @@
         "required": [
           "email",
           "asunto",
-          "description"
+          "descripcion"
         ]
       }
     }
