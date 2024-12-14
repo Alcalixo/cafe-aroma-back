@@ -108,6 +108,7 @@ async function seedOrders(userIds, productIds) {
     const order = {
       user_id: userIds[Math.floor(Math.random() * userIds.length)],
       items: [],
+      status: "approved",
     };
 
     const numProducts = Math.floor(Math.random() * 5) + 1;
