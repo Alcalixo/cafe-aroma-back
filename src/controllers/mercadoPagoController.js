@@ -33,13 +33,19 @@ const createPrefenceController = async (body) => {
   }
 };
 
-const returnController = async (payment_id, status, merchant_order_id) => {
+const returnController = async (
+  payment_id,
+  status,
+  merchant_order_id,
+  external_reference
+) => {
   try {
     const result = await Order.findByIdAndUpdate(
-      merchant_order_id,
+      external_reference,
       {
         status: status,
         payment_id: payment_id,
+        merchant_order_id: merchant_order_id,
       },
       { new: true }
     );

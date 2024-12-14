@@ -42,6 +42,9 @@ const orderSchema = new mongoose.Schema(
     payment_id: {
       type: String,
     },
+    merchant_order_id: {
+      type: String,
+    },
     eliminado: {
       type: String,
       default: "NO", // Valor por defecto

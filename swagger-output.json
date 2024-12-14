@@ -1449,6 +1449,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "external_reference",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1604,6 +1611,10 @@
           "payment_id": {
             "type": "string",
             "example": "675659ec9247bd1a5c6a8fe2"
+          },
+          "merchant_order_id": {
+            "type": "string",
+            "example": "26116982143"
           }
         },
         "required": [
