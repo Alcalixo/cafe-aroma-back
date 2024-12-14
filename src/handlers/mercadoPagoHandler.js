@@ -36,14 +36,20 @@ const createPreferenceHandler = async (req, res) => {
 
 const returnHandler = async (req, res) => {
   try {
-    const { payment_id, status, merchant_order_id } = req.query;
+    const { payment_id, status, merchant_order_id, external_reference } =
+      req.query;
     // Aquí puedes realizar las acciones necesarias en tu backend
     // Por ejemplo, actualizar el estado de la orden de compra en tu base de datos
 
     // Enviar una respuesta a Mercado Pago
 
     // Aquí puedes procesar los datos recibidos
-    const order = await returnController(payment_id, status, merchant_order_id);
+    const order = await returnController(
+      payment_id,
+      status,
+      merchant_order_id,
+      external_reference
+    );
 
     // payment_id	ID (identifier) of the payment from Mercado Pago.
     // status	Payment status. Ex.: approved for an approved payment or pending for pending payment.
