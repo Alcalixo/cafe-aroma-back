@@ -8,6 +8,15 @@ const mercadoPagoClient = new MercadoPagoConfig({
   accessToken: MP_ACCESS_TOKEN,
 });
 
+const throwError500 = (error, extraInfo = {}) => {
+  throw {
+    message: `Error al intentar obtener datos, ocurre que: ${
+      error.message
+    } - ${JSON.stringify(extraInfo)}`,
+    statusCode: 500, //error del servidor
+  };
+};
+
 const createPrefenceController = async (body) => {
   if (!body) {
     throw {
@@ -36,7 +45,11 @@ const returnController = async (payment_id, status, merchant_order_id) => {
     );
     return result;
   } catch (error) {
-    throwError500(error);
+    throwError500(error, {
+      payment_id,
+      status,
+      merchant_order_id,
+    });
   }
 };
 
