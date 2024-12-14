@@ -889,6 +889,47 @@
         ]
       }
     },
+    "/api/ordenes/admin/byUserId/{userId}": {
+      "get": {
+        "tags": [
+          "Ordenes"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/api/ordenes/crearPedido": {
       "post": {
         "tags": [
@@ -1345,7 +1386,7 @@
         ]
       }
     },
-    "/api/mercadoPago/createPreference/{order_id}": {
+    "/api/mercadoPago/createPreference/{orderId}": {
       "post": {
         "tags": [
           "Mercado Pago"
@@ -1353,7 +1394,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "order_id",
+            "name": "orderId",
             "in": "path",
             "required": true,
             "schema": {

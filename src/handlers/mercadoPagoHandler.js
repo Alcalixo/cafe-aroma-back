@@ -4,7 +4,7 @@ const {
 
 const createPreferenceHandler = async (req, res) => {
   try {
-    const { order_id } = req.params;
+    const { orderId } = req.params;
     const mp = {
       items: req.body.map((item) => ({
         id: item._id,
@@ -22,7 +22,7 @@ const createPreferenceHandler = async (req, res) => {
       },
       auto_return: "approved",
       statement_descriptor: "Café Aroma",
-      external_reference: order_id, // Aquí se envía la merchant_order_id
+      external_reference: orderId, // Aquí se envía la merchant_order_id
     };
     console.log(mp);
     const response = await createPrefenceController(mp);
