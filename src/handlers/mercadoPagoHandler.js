@@ -43,12 +43,7 @@ const returnHandler = async (req, res) => {
     // Enviar una respuesta a Mercado Pago
 
     // Aquí puedes procesar los datos recibidos
-    const order = await returnController(
-      payment_id,
-      status,
-      external_reference,
-      merchant_order_id
-    );
+    const order = await returnController(payment_id, status, merchant_order_id);
 
     // payment_id	ID (identifier) of the payment from Mercado Pago.
     // status	Payment status. Ex.: approved for an approved payment or pending for pending payment.
