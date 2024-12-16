@@ -6,7 +6,7 @@ const authUser = require("../middlewares/authUser");
 mercadoPagoRouter.post(
   "/createPreference/:orderId",
   authUser.authenticate,
-  authUser.authorize(["admin"]),
+  authUser.authorize(["cliente"]),
   mercadoPagoHandler.createPreferenceHandler
   /*  
   #swagger.requestBody = {
