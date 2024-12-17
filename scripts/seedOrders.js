@@ -34,11 +34,13 @@ async function seedOrders() {
       const productId =
         productIds[Math.floor(Math.random() * productIds.length)];
       const price = Math.round((Math.random() * 3000 + 1000) * 100) / 100;
+      const iva = (price * 0.21).toFixed(2);
       const quantity = Math.floor(Math.random() * 3) + 1;
       order.items.push({
         product_id: productId,
         precio: price,
         cantidad: quantity,
+        iva: iva,
       });
     }
 
