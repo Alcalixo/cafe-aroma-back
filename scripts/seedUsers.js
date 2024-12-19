@@ -29,9 +29,13 @@ async function seedUsers() {
     const results = JSON.parse(data);
     console.log(`Found ${results.length} rows...`);
 
+    // Agregar un límite a los primeros 50 registros
+    const limit = 100;
+    const limitedResults = results.slice(0, limit);
+
     // Creating users
     console.log("Creating users...");
-    for (const result of results) {
+    for (const result of limitedResults) {
       const user = {
         dni: result.dni,
         nombre: result.nombre,
